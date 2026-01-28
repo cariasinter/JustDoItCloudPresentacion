@@ -1,12 +1,149 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      lang="en"
-        xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Just Do It!</title>
+    <meta charset="UTF-8">
+    <title>JustDoIt!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /* --- Base styles --- */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        /* --- Main layout --- */
+        .container {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: 100vh;
+        }
+
+        /* --- Left column --- */
+        .sidebar {
+            background-color: #1f3a5f;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px auto;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .navigation h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 5px;
+        }
+
+        .navigation ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        .navigation li {
+            margin-bottom: 8px;
+        }
+
+        .navigation a {
+            color: #cfe2ff;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Right column --- */
+        .content {
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .content h1 {
+            margin-top: 0;
+            color: #1f3a5f;
+        }
+
+        /* --- Responsive behavior --- */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navigation {
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Welcome to the...</h1>
-    <img th:src ="@{/images/JustDoIt.png}" alt="Logo"/>
+
+<div class="container">
+
+    <!-- Left column -->
+    <aside class="sidebar">
+
+        <!-- Logo area -->
+        <div class="logo">
+            <img th:src="@{/images/JustDoIt.png}" alt="JustDoIt Logo" width="200" height="200">
+        </div>
+
+        <!-- Navigation area -->
+        <nav class="navigation">
+            <h3>Tasks</h3>
+            <ul>
+                <li>
+                    <a th:href="@{/usertasks}">User Tasks</a>
+                </li>
+            </ul>
+        </nav>
+
+    </aside>
+
+    <!-- Right column -->
+    <main class="content">
+        <h1>Bienvenido a JustDoIt!</h1>
+        <p>
+            El manejo adecuado de listas de tareas es una herramienta clave para mejorar la productividad personal y profesional.
+            Al organizar las actividades pendientes de forma clara y estructurada, las personas pueden priorizar mejor su trabajo,
+            reducir la carga mental y evitar olvidar compromisos importantes.
+            Una lista de tareas bien definida permite enfocar la atención en una actividad a la vez, lo que contribuye a un uso más eficiente del tiempo y
+            a una mayor sensación de control sobre las responsabilidades diarias.
+        </p>
+
+        <p>
+            Además, las listas de tareas facilitan el seguimiento del progreso y fomentan la motivación,
+            ya que completar actividades genera una percepción tangible de avance. En entornos académicos y laborales,
+            este hábito ayuda a planificar mejor el trabajo, cumplir plazos y adaptarse a cambios de manera ordenada.
+            En conjunto, el uso sistemático de listas de tareas no solo incrementa la productividad,
+            sino que también reduce el estrés y mejora la calidad del trabajo real
+
+    </main>
+
+</div>
+
 </body>
 </html>
