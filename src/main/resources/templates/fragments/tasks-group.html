@@ -19,7 +19,6 @@
             </span>
         </div>
 
-        <!-- Formulario sólo para PENDING (crea nueva tarea) -->
         <form  method="POST" class="new-task-form" th:object="${newTask}">
             <label for="description">Nueva tarea:</label>
             <input id="description" th:field="*{description}" type="text" placeholder="Describe la tarea..." />
@@ -27,7 +26,6 @@
                   th:if="${#fields.hasErrors('description')}"
                   th:errors="*{description}">Desc error</span>
 
-            <!-- Estado fijo a PENDING -->
             <input type="hidden" name="status" th:value="${groupStatus}" />
 
             <button type="submit">Crear tarea</button>
